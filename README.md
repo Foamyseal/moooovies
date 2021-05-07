@@ -1,3 +1,11 @@
+# The Shoppies 
+
+I think this app should be called moovies instead. Also I hope no one reads this file. 
+
+But if you're here, I guess you can learn a bit more about how I pulled this off while
+listening to some @porter robinson. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-const MovieCard = (props) => {
+const NominatedMovieCard = (props) => {
 
   function handleSubmit() {
     props.nominateMovie(props.card); 
@@ -29,12 +29,12 @@ const MovieCard = (props) => {
               </div>
               <div class="w-full lg:w-3/5 lg:px-3">
                 <p class="text-md mt-4 lg:mt-0 text-justify md:text-left text-sm">
-                    {props.card.description}
+                    {props.description}
                 </p>
               </div>
               <div class="w-full lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
                 <button class="bg-blue-500 hover:bg-blue-700 -mx-2 text-white py-2 px-4 rounded-full" onClick={handleSubmit} >
-                  Nominate
+                  Remove
                 </button>
               </div>
             </div>
@@ -44,4 +44,4 @@ const MovieCard = (props) => {
     );
 }
 
-export default MovieCard; 
+export default NominatedMovieCard; 

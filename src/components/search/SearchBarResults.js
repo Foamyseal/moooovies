@@ -1,13 +1,11 @@
 import React from "react";
 import MovieCard from "../cards/MovieCard";
 
-const SearchBarResults = ({ movies }) => { 
-    console.log(movies); 
-    console.log(movies[0].Title); 
+const SearchBarResults = ({ movies, nominateMovie}) => { 
   return (
     <>
       {movies.map((movie, i) => {
-        return <MovieCard card={movie} index={i} />;
+        return <MovieCard  card={movie} key={i} nominateMovie={nominateMovie}/>;
       })}
     </>
 

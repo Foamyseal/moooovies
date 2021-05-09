@@ -4,7 +4,7 @@ const NominatedMovieCard = (props) => {
 
 
   function handleSubmit() {
-    props.removeMovie(props.id); 
+    props.removeMovie(props.id, props.card.imdbID); 
   }
 
     return (

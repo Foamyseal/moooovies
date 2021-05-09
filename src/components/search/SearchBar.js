@@ -44,11 +44,17 @@ export default class SearchBar extends Component {
     });
   }
 
-  removeMovie(index) {
+  removeMovie(index, id) {
     var tempFavMovies = [...this.state.favouriteMovies];
+    var tempFavMovieIds = [...this.state.favouriteMoviesId]; 
     if (index !== -1) {
       tempFavMovies.splice(index, 1);
-      this.setState({ favouriteMovies: tempFavMovies });
+      for (var i = 0; i < tempFavMovieIds.length; i++) {
+        if (tempFavMovieIds[i] === id) { 
+            tempFavMovieIds.splice(i, 1);
+        }
+      }
+      this.setState({ favouriteMovies: tempFavMovies, favouriteMoviesId: tempFavMovieIds});
     }
   }
 
@@ -92,6 +98,7 @@ export default class SearchBar extends Component {
         {this.state.movies ? (
           <div class="grid grid-rows-2 grid-flow-col gap-4flex justify-start">
             <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 row-start-1 row-end-3  gap-5">
+              Results: 
               {this.state.movies.length !== 0 && (
                 <SearchBarResults
                   nominateMovie={this.nominateMovie}
@@ -101,6 +108,7 @@ export default class SearchBar extends Component {
               )}
             </div>
             <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 row-start-1 row-end-3 gap-5">
+              Nominated:
               {this.state.favouriteMovies.length !== 0 && (
                 <FavouriteMovies
                   removeMovie={this.removeMovie.bind(this)}

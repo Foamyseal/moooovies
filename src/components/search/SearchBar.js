@@ -9,10 +9,10 @@ export default class SearchBar extends Component {
 
     this.state = {
       searchQuery: "",
-      loading: false,
+      error: false,
       movies: [],
       favouriteMovies: [],
-      favouriteMoviesId: [], 
+      favouriteMoviesId: [],
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.nominateMovie = this.nominateMovie.bind(this);
@@ -25,22 +25,22 @@ export default class SearchBar extends Component {
   }
 
   searchMovies = async () => {
-    try {
-      this.setState({ loading: true });
-      await API.get(`${this.state.searchQuery}`).then((res) => {
+    await API.get(`${this.state.searchQuery}`)
+      .then((res) => {
         const movies = res.data.Search;
-        this.setState({ movies: movies, loading: false });
+        this.setState({ movies: movies });
+      })
+      .catch((error) => {
+        console.log(error); 
       });
-    } catch (err) {
-      console.log(err);
-    }
   };
+
+
 
   nominateMovie(movie) {
     this.setState({
       favouriteMovies: this.state.favouriteMovies.concat([movie]),
-      favouriteMoviesId: this.state.favouriteMoviesId.concat([movie.imdbID])
-      
+      favouriteMoviesId: this.state.favouriteMoviesId.concat([movie.imdbID]),
     });
   }
 
@@ -89,25 +89,29 @@ export default class SearchBar extends Component {
             </button>
           )}
         </div>
-        <div class="grid grid-rows-2 grid-flow-col gap-4flex justify-start">
-          <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 row-start-1 row-end-3  gap-5">
-            {this.state.movies.length !== 0 && (
-              <SearchBarResults
-                nominateMovie={this.nominateMovie}
-                movies={this.state.movies}
-                favMovies={this.state.favouriteMoviesId}
-              />
-            )}
+        {this.state.movies ? (
+          <div class="grid grid-rows-2 grid-flow-col gap-4flex justify-start">
+            <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 row-start-1 row-end-3  gap-5">
+              {this.state.movies.length !== 0 && (
+                <SearchBarResults
+                  nominateMovie={this.nominateMovie}
+                  movies={this.state.movies}
+                  favMovies={this.state.favouriteMoviesId}
+                />
+              )}
+            </div>
+            <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 row-start-1 row-end-3 gap-5">
+              {this.state.favouriteMovies.length !== 0 && (
+                <FavouriteMovies
+                  removeMovie={this.removeMovie.bind(this)}
+                  movies={this.state.favouriteMovies.slice(0, 5)}
+                />
+              )}
+            </div>
           </div>
-          <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 row-start-1 row-end-3 gap-5">
-            {this.state.favouriteMovies.length !== 0 && (
-              <FavouriteMovies
-                removeMovie={this.removeMovie.bind(this)}
-                movies={this.state.favouriteMovies.slice(0, 5)}
-              />
-            )}
-          </div>
-        </div>
+        ) : (
+          <div> ERROR: Please enter a valid movie title! </div>
+        )}
       </div>
     );
   }

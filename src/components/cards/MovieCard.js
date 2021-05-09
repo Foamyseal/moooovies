@@ -7,7 +7,7 @@ const MovieCard = (props) => {
   }
 
     return (
-      <div key={props.index} class="shadow-lg flex flex-wrap max-w-md lg:w-4/5 mx-auto">
+      <div key={props.id} class="shadow-lg flex flex-wrap max-w-md lg:w-4/5 mx-auto">
         <div
           class="bg-cover bg-bottom border w-full md:w-1/3 h-64 md:h-auto relative"
           style={{backgroundImage: `url(${props.card.Poster})`}} title="Movie Image"

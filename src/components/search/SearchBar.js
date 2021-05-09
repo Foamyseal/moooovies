@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import API from "../../Api";
 import FavouriteMovies from "../FavouriteMovies";
@@ -37,23 +36,20 @@ export default class SearchBar extends Component {
   };
 
   nominateMovie(movie) {
-    console.log(movie); 
     this.setState({
       favouriteMovies: this.state.favouriteMovies.concat([movie]),
     });
-    console.log(this.state.favouriteMovies); 
-    console.log("ran"); 
   }
 
-  removeMovie(event, movie) {
-    this.setState({
-      favouriteMovies: [...this.state.favouriteMovies, movie],
-    });
-    event.preventDefault();
+  removeMovie(index) {
+    var tempFavMovies = [...this.state.favouriteMovies];
+    if (index !== -1) {
+      tempFavMovies.splice(index, 1);
+      this.setState({ favouriteMovies: tempFavMovies });
+    }
   }
 
   render() {
-    console.log(this.state.movies);
     return (
       <div>
         <div class="p-8">
@@ -93,7 +89,7 @@ export default class SearchBar extends Component {
         <div>
           {this.state.favouriteMovies.length !== 0 && (
             <FavouriteMovies
-              nominateMovie={this.nominateMovie.bind(this)}
+              removeMovie={this.removeMovie.bind(this)}
               movies={this.state.favouriteMovies}
             />
           )}

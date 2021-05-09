@@ -2,12 +2,12 @@ import React from 'react';
 import NominatedMovieCard from "./cards/NominatedMovieCard";
 
 
-const FavouriteMovies = ({ movies, nominateMovie }) => {
+const FavouriteMovies = ({ movies, removeMovie }) => {
 
     return (
         <>
-        {movies.map((movie, i) => {
-          return <NominatedMovieCard card={movie} key={i} nominate={nominateMovie} />;
+        {movies.map((movie, index) => {
+          return <NominatedMovieCard card={movie} key={index} id={index} removeMovie={removeMovie} />;
         })}
       </>
     )

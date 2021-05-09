@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 const MovieCard = (props) => {
-  const [nominated, setNominated] = useState(false);
+
+  function checkNominated() {
+    if (props.favMoviesId != null) {
+      for (let i = 0; i < props.favMoviesId.length; i++) {
+        if (props.favMoviesId[i] === props.card.imdbID) {
+          return false; 
+        }
+      }
+      return true; 
+    }
+  }
 
   function handleSubmit() {
     props.nominateMovie(props.card);
-    setNominated(!nominated);
   }
 
   return (
@@ -39,7 +48,7 @@ const MovieCard = (props) => {
               </p>
             </div>
             <div class="w-full lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
-              { !nominated ? 
+              { checkNominated() ? 
                 <button
                   class="bg-blue-500 hover:bg-blue-700 -mx-2 text-white py-2 px-4 rounded-full"
                   onClick={handleSubmit}

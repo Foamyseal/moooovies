@@ -2,6 +2,7 @@ import React from "react";
 
 const NominatedMovieCard = (props) => {
 
+
   function handleSubmit() {
     props.removeMovie(props.id); 
   }
@@ -33,7 +34,7 @@ const NominatedMovieCard = (props) => {
                 </p>
               </div>
               <div class="w-full lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
-                <button class="bg-blue-500 hover:bg-blue-700 -mx-2 text-white py-2 px-4 rounded-full" onClick={handleSubmit} >
+                <button class="bg-red-500 hover:bg-red-700 -mx-2 text-white py-2 px-4 rounded-full" onClick={handleSubmit} >
                   Remove
                 </button>
               </div>

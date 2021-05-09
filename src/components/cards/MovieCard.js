@@ -11,7 +11,7 @@ const MovieCard = (props) => {
   return (
     <div
       key={props.id}
-      class="shadow-lg flex flex-wrap max-w-md lg:w-4/5 mx-auto"
+      class="shadow-lg flex flex-wrap w-full lg:w-4/5 mx-auto"
     >
       <div
         class="bg-cover bg-bottom border w-full md:w-1/3 h-64 md:h-auto relative"
@@ -39,13 +39,16 @@ const MovieCard = (props) => {
               </p>
             </div>
             <div class="w-full lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
-              { !nominated && 
+              { !nominated ? 
                 <button
                   class="bg-blue-500 hover:bg-blue-700 -mx-2 text-white py-2 px-4 rounded-full"
                   onClick={handleSubmit}
                 >
                   Nominate
                 </button>
+                : <div class="bg-red-500 -mx-2 text-white  rounded-full"> 
+                  Nominated
+                </div>
               }
             </div>
           </div>

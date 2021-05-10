@@ -55,7 +55,7 @@ const MovieCard = (props) => {
                 >
                   Nominate
                 </button>
-                : <div class="bg-red-500 -mx-2 text-white py-2 px-4 rounded-full"> 
+                : <div class="min-w-min bg-red-500 -mx-2 text-white py-2 px-4 rounded-full"> 
                   Nominated
                 </div>
               }

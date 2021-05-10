@@ -56,11 +56,6 @@ export default class SearchBar extends Component {
   }
 
   removeMovie(index, id) {
-    if (this.state.favouriteMovies.length <= 5) {
-      this.setState((prevState) => ({
-        fullyNominated: prevState.fullyNominated === false,
-      }));
-    } 
     var tempFavMovies = [...this.state.favouriteMovies];
     var tempFavMovieIds = [...this.state.favouriteMoviesId];
     if (index !== -1) {
@@ -70,6 +65,11 @@ export default class SearchBar extends Component {
           tempFavMovieIds.splice(i, 1);
         }
       }
+      if (this.state.favouriteMovies.length === 5) {
+        this.setState((prevState) => ({
+          fullyNominated: prevState.fullyNominated === false,
+        }));
+      } 
       this.setState({
         favouriteMovies: tempFavMovies,
         favouriteMoviesId: tempFavMovieIds,
@@ -130,6 +130,7 @@ export default class SearchBar extends Component {
           ) : (
             <div> ERROR: Please enter a valid movie title! </div>
           )}
+          <div class="container">
           <div class="p-10 grid grid-cols-1 grid-flow-row sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5">
             <div>
               {this.state.fullyNominated && (
@@ -148,6 +149,7 @@ export default class SearchBar extends Component {
               />
             )}
           </div>
+        </div>
         </div>
       </div>
     );

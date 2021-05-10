@@ -31,9 +31,9 @@ export default class SearchBar extends Component {
     }
   }
 
-  searchMovies = async () => {
+  searchMovies = () => {
     try {
-    await API.get(`${this.state.searchQuery}`)
+    API.get(`${this.state.searchQuery}`)
       .then((res) => {
         const movies = res.data.Search;
         this.setState({ movies: movies });

@@ -1,5 +1,5 @@
 import React from "react";
-import NominatedMovieCard from "./cards/NominatedMovieCard";
+import NominatedMovieCard from "../cards/NominatedMovieCard";
 
 const FavouriteMovies = ({ movies, removeMovie }) => {
   return (

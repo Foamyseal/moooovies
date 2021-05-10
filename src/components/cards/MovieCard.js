@@ -47,15 +47,15 @@ const MovieCard = (props) => {
                 {props.card.description}
               </p>
             </div>
-            <div class="w-full lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
+            <div class=" lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
               { checkNominated() ? 
                 <button
-                  class="bg-blue-500 hover:bg-blue-700 -mx-2 text-white py-2 px-4 rounded-full"
+                  class="bg-green-500 hover:bg-green-700 -mx-2 text-white py-2 px-4 rounded-full"
                   onClick={handleSubmit}
                 >
                   Nominate
                 </button>
-                : <div class="bg-red-500 -mx-2 text-white  rounded-full"> 
+                : <div class="bg-red-500 -mx-2 text-white py-2 px-4 rounded-full"> 
                   Nominated
                 </div>
               }

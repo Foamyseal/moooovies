@@ -32,14 +32,15 @@ export default class SearchBar extends Component {
   }
 
   searchMovies = async () => {
+    try {
     await API.get(`${this.state.searchQuery}`)
       .then((res) => {
         const movies = res.data.Search;
         this.setState({ movies: movies });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+    } catch(e) {
+      console.log(e); 
+    }
   };
 
   nominateMovie(movie) {

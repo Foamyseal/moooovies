@@ -19,3 +19,5 @@ React has great state management and I think is absolutely neccesary for this pr
 If I had more time, I would list the search results as a drop down below the search bar, then have the nominations laid out in the main body of the webpage. 
 This is because nominations are ultimately the most important part of the app and I want to highlight it (its quite literally the purpose.)
 Haven't done it before so I didn't want to risk not finishing a feature on time and would rather spend time making it work better. 
+
+Many UI bugs on smaller mobile devices. I would need to do more work with setting breakpoints for responsiveness. 

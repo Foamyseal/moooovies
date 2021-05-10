@@ -1,78 +1,21 @@
 # The Shoppies 
 
-I think this app should be called moovies instead. Also I hope no one reads this file. 
+You made it here! 
 
-But if you're here, I guess you can learn a bit more about how I pulled this off while
-listening to some @porter robinson. 
+I guess you can learn a bit more about how I pulled this off while
+listening to @porter robinson's Nurture Live set on repeat in less than 24 hours. Rough week for me so hard to find time to work on it. 
+
+# Why certain things
+
+I chose to do queries onSubmit instead of having them query live. This gives performance benefits and scales better. Imagine having one user make n number of queries
+everytime they made n key presses. Then scale this up to n users. Ouch, rip db. 
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [TailWind CSS](https://tailwindcss.com/)
+React has great state management and I think is absolutely neccesary for this project to work. TailWind is just nice because it allows me to quickly do UI given the very short time frame. 
 
 
-# Getting Started with Create React App
+# Improvements
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If I had more time, I would list the search results as a drop down below the search bar, then have the nominations laid out in the main body of the webpage. 
+This is because nominations are ultimately the most important part of the app and I want to highlight it (its quite literally the purpose.)
+Haven't done it before so I didn't want to risk not finishing a feature on time and would rather spend time making it work better. 

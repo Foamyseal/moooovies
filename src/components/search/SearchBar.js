@@ -25,9 +25,9 @@ export default class SearchBar extends Component {
     });
   }
 
-  handleEnterKeyDown (e) {
-    if(e.keyCode === 13) {
-      this.searchMovies(); 
+  handleEnterKeyDown(e) {
+    if (e.keyCode === 13) {
+      this.searchMovies();
     }
   }
 
@@ -69,7 +69,7 @@ export default class SearchBar extends Component {
         this.setState((prevState) => ({
           fullyNominated: prevState.fullyNominated === false,
         }));
-      } 
+      }
       this.setState({
         favouriteMovies: tempFavMovies,
         favouriteMoviesId: tempFavMovieIds,
@@ -119,37 +119,46 @@ export default class SearchBar extends Component {
           {this.state.movies ? (
             <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 col-start-1 col-end-2 gap-5">
               Search Results:
-              {this.state.movies.length !== 0 && (
+              {this.state.movies.length !== 0 ? (
                 <SearchBarResults
                   nominateMovie={this.nominateMovie}
                   movies={this.state.movies}
                   favMovies={this.state.favouriteMoviesId}
                 />
+              ) : (
+                <div class="text-gray-400">Search something!!</div>
               )}
             </div>
           ) : (
-            <div> ERROR: Please enter a valid movie title! </div>
+            <div>
+              {" "}
+              ERROR: Please enter a valid movie title! That one wasn't one{" "}
+            </div>
           )}
           <div class="container">
-          <div class="p-10 grid grid-cols-1 grid-flow-row sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5">
-            <div>
+            <div class="p-10 grid grid-cols-1 grid-flow-row sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5">
+              <div>
               {this.state.fullyNominated && (
-                <button class="bg-blue-500 hover:bg-blue-700 -mx-2 text-white py-2 px-4 rounded-full">
+                <div class="bg-blue-500 hover:bg-blue-700 -mx-2 text-white py-2 px-4 rounded-full">
                   Please delete movies off nomination list before adding new ones!
-                </button>
+                </div>
               )}
             </div>
-            <div class="">
-            Nominated:
+              <div class="-mt-1">Nominated:</div>
+              {this.state.favouriteMovies.length !== 0 ? (
+                <FavouriteMovies
+                  removeMovie={this.removeMovie.bind(this)}
+                  movies={this.state.favouriteMovies.slice(0, 5)}
+                />
+              ) : (
+                <div class="text-gray-400">
+                  {" "}
+                  You have no current nominations! Search for a movie and
+                  nominate!
+                </div>
+              )}
             </div>
-            {this.state.favouriteMovies.length !== 0 && (
-              <FavouriteMovies
-                removeMovie={this.removeMovie.bind(this)}
-                movies={this.state.favouriteMovies.slice(0, 5)}
-              />
-            )}
           </div>
-        </div>
         </div>
       </div>
     );

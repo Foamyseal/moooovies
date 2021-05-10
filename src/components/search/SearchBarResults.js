@@ -2,7 +2,6 @@ import React from "react";
 import MovieCard from "../cards/MovieCard";
 
 const SearchBarResults = ({ movies, nominateMovie, favMovies }) => {
-    // console.log(favMovies); 
   return (
     <>
       {movies.map((movie, index) => {
